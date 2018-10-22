@@ -1,0 +1,23 @@
+{
+  "name": "academic-system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "ts-node ./src/server.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lucas Dittrich",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server": "^2.1.0",
+    "reflect-metadata": "^0.1.12",
+    "ts-node": "^7.0.1",
+    "type-graphql": "^0.14.0",
+    "typescript": "^3.1.1",
+    "yarn": "^1.10.1"
+  }
+}
