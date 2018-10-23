@@ -5,7 +5,7 @@ export default class UserResolver {
 
     @Query()
     status(): string {
-        return 'Está rodando'
+        return 'Serviço rodando corretamente'
     }
 
 }
