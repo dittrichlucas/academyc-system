@@ -1,32 +1,31 @@
 {
-  "name": "academic-system",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "start": "ts-node ./src/server.ts",
-    "dev:up": "ts-node ./src/migrations/deploy/1-init-db.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Lucas Dittrich",
-  "license": "MIT",
-  "dependencies": {
-    "@types/pg": "^7.4.11",
-    "apollo-server": "^2.1.0",
-    "bluebird": "^3.5.3",
-    "pg": "^7.8.0",
-    "reflect-metadata": "^0.1.12",
-    "ts-node": "^7.0.1",
-    "type-graphql": "^0.14.0",
-    "typedi": "^0.8.0",
-    "typescript": "^3.1.1",
-    "yarn": "^1.10.1"
-  },
-  "repository": "https://github.com/DittrichLucas/academyc-system.git",
-  "devDependencies": {
-    "@types/bluebird": "^3.5.25"
-  }
+    "name": "academic-system",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "start": "ts-node ./src/server.ts",
+        "dev:up": "ts-node ./src/migrations/deploy/1-init-db.ts",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Lucas Dittrich",
+    "license": "MIT",
+    "dependencies": {
+        "apollo-server": "^2.1.0",
+        "bluebird": "^3.5.3",
+        "pg": "^7.8.0",
+        "reflect-metadata": "^0.1.12",
+        "ts-node": "^7.0.1",
+        "type-graphql": "^0.14.0",
+        "typedi": "^0.8.0"
+    },
+    "repository": "https://github.com/dittrichlucas/academyc-system.git",
+    "devDependencies": {
+        "@types/bluebird": "^3.5.25",
+        "@types/pg": "^7.4.11",
+        "typescript": "^3.1.1"
+    }
 }
