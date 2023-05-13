@@ -1,17 +1,24 @@
 import { ApolloServer } from 'apollo-server'
-import 'reflect-metadata'
 import { buildSchema } from 'type-graphql'
-import UserResolver from './resolvers/user'
+import { Container, Service } from 'typedi'
+import { ApolloServerPluginLandingPageGraphQLPlayground } from '@apollo/server-plugin-landing-page-graphql-playground'
 
-async function server() {
-    const schema = await buildSchema({ resolvers: [ UserResolver ] })
-    const server = new ApolloServer({ schema })
+@Service()
+export default class Server {
+    async start() {
+        const schema = await buildSchema({
+            container: Container,
+            resolvers: [`${__dirname}/resolvers/*`],
+            validate: false,
+            
+        })
+        const server = new ApolloServer({
+            plugins: [ApolloServerPluginLandingPageGraphQLPlayground()],
+            schema
+        })
 
-    return server.listen(3003)
+        await server.listen(3000, () => {
+            console.log('🚀 Server running on port 3000')
+        })
+    }
 }
-
-server().then(() => {
-    console.log('Servidor GraphQL rodando!')
-}).catch(() => {
-    console.log('Não foi possível conectar-se ao servidor!')
-})

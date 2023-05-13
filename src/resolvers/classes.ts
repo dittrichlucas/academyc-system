@@ -1,22 +1,33 @@
-import { ObjectType, Field, Resolver, Arg, Mutation } from "type-graphql";
+import { ClassesDto, CreateClass } from '../dto/classes'
+import ClassesService from '../services/classes'
+import {
+    Resolver,
+    Arg,
+    Mutation,
+    Query
+} from 'type-graphql'
+import { Inject, Service } from 'typedi'
 
-@ObjectType()
-class Classes {
-    @Field() id: string
-    @Field() name: string
-}
-
-class createClass {
-    @Field() name: string
-}
-
+@Service()
 @Resolver()
 export default class ClassesResolver{
-    // Criação das mutations e querys dentro da 'classe'
-    @Mutation(_ => createClass)
+    @Inject(() => ClassesService)
+    private readonly classesService: ClassesService
+    
+    @Mutation(_ => CreateClass)
     async createClass(
         @Arg('name') name: string
-    ) {
-        return // É o retorno da função do service
+    ): Promise<ClassesDto> {
+        return this.classesService.create(name)
+    }
+    
+    @Query(_ => [ClassesDto])
+    async findAllClasses(): Promise<ClassesDto[]> {
+        return this.classesService.findAll()
+    }
+    
+    @Query()
+    testQuery(): string {
+        return 'My query test...'
     }
 }
